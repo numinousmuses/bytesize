@@ -1,0 +1,243 @@
+@font-face {
+    font-family: 'CreatoLight';
+    src: url('./../fonts/CreatoDisplay-Thin.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+  
+@font-face {
+    font-family: Anurati;
+    src: url("./../fonts/Anurati-Regular.otf") format("opentype");
+}
+
+.page {
+    color: white;
+    font-family: CreatoLight;
+    overflow-y: scroll;
+    scrollbar-color: #ffffff #000000;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    margin-top: 10px;
+}
+
+.logoText, .session {
+    font-size: 1.2rem;
+}
+
+.logoText a {
+    text-decoration: none;
+    color: white;
+}
+
+.logospan {
+    color: #ffffff;
+}
+
+.session {
+    display: flex;
+    gap: 0.5rem;
+    transition: all 500ms;
+}
+
+.settings {
+    display: flex;
+    gap: 10px;
+}
+
+.selectionHeader{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.addTopic button{
+    margin-left: 20px;
+}
+
+.addTopic input {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    height: 33px;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    font-family: CreatoLight;
+}
+
+.topicCount{
+    background-color: #3D3B8E;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.selectionHeader select {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    height: 33px;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    font-family: CreatoLight;
+}
+
+.selectionHeader button {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 150px;
+    transition: all 300ms;
+}
+
+.selectionHeader button:hover{
+    background-color: #3D3B8E;
+    color: white;
+}
+
+.deSelectedButton {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+    transition: all 300ms;
+}
+
+.deSelectedButton:hover {
+    scale: 0.95;
+}
+
+.selectedButton {
+    background-color: #3D3B8E;
+
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+    transition: all 300ms;
+
+}
+
+.content {
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.footer {
+    padding: 1rem;
+    text-align: center;
+    font-size: 1rem;
+    color: #cccccc;
+}
+
+.loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 4rem;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}
+
+.agentsColor {
+    color: #ff6347;
+}
+
+.topicGroup {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.topicGroup h3 {
+    margin-bottom: 20px;
+}
+  
+.topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;  
+    justify-content: center;
+}
+
+
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    --s: 150px; /* control the size */
+    --c1: #121212;
+    --c2: #000000;
+  
+    --_g: var(--c1) 0% 5%, var(--c2) 6% 15%, var(--c1) 16% 25%, var(--c2) 26% 35%,
+      var(--c1) 36% 45%, var(--c2) 46% 55%, var(--c1) 56% 65%, var(--c2) 66% 75%,
+      var(--c1) 76% 85%, var(--c2) 86% 95%, #0000 96%;
+    background: radial-gradient(50% 50% at 100% 0, var(--_g)),
+      radial-gradient(50% 50% at 0 100%, var(--_g)),
+      radial-gradient(50% 50%, var(--_g)),
+      radial-gradient(50% 50%, var(--_g)) calc(var(--s) / 2) calc(var(--s) / 2)
+        var(--c1);
+    background-size: var(--s) var(--s);
+}
+
+
+@media screen and (max-width: 600px) {
+    .settings {
+        flex-direction: column;
+    }
+    .header {
+        padding: 0 5px;
+        flex-direction: column;
+        gap: 0.7rem;
+    }
+
+    .selectionHeader{
+        flex-direction: column;
+    }
+}
+
+/* Add the loading overlay CSS if not already defined */
+.loadingOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.loadingText {
+    color: white;
+    text-align:center;
+}
+
+.loadingTitle{
+    font-size: 2rem;
+    font-weight: bold  ;
+}
+

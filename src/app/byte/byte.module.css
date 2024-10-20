@@ -1,0 +1,253 @@
+@font-face {
+    font-family: "CreatoLight";
+    src: url("./../fonts/CreatoDisplay-Thin.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: Anurati;
+    src: url("./../fonts/Anurati-Regular.otf") format("opentype");
+  }
+  
+  .page {
+    color: white;
+    font-family: CreatoLight;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .content {
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+    font-weight: bold;
+  }
+  
+  .byte {
+    scroll-snap-align: start;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  
+  .headerPattern,
+  .agentsPattern,
+  .bytesizePattern {
+    width: 100%;
+    height: 30vh;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+  }
+  
+  .headerPattern {
+    /* Existing pattern styles */
+    --u: 5px;
+    --gp: 50% / calc(var(--u) * 16.9) calc(var(--u) * 12.8);
+    background: conic-gradient(
+          from 122deg at 50% 85.15%,
+          var(--c2) 0 58deg,
+          var(--c3) 0 116deg,
+          transparent 0 100%
+        )
+        var(--gp),
+      conic-gradient(from 122deg at 50% 72.5%, var(--c1) 0 116deg, transparent 0 100%) var(--gp),
+      conic-gradient(from 58deg at 82.85% 50%, var(--c3) 0 64deg, transparent 0 100%) var(--gp),
+      conic-gradient(
+          from 58deg at 66.87% 50%,
+          var(--c1) 0 64deg,
+          var(--c2) 0 130deg,
+          transparent 0 100%
+        )
+        var(--gp),
+      conic-gradient(from 238deg at 17.15% 50%, var(--c2) 0 64deg, transparent 0 100%) var(--gp),
+      conic-gradient(
+          from 172deg at 33.13% 50%,
+          var(--c3) 0 66deg,
+          var(--c1) 0 130deg,
+          transparent 0 100%
+        )
+        var(--gp),
+      linear-gradient(98deg, var(--c3) 0 15%, transparent calc(15% + 1px) 100%) var(--gp),
+      linear-gradient(-98deg, var(--c2) 0 15%, transparent calc(15% + 1px) 100%) var(--gp),
+      conic-gradient(
+          from -58deg at 50.25% 14.85%,
+          var(--c3) 0 58deg,
+          var(--c2) 0 116deg,
+          transparent 0 100%
+        )
+        var(--gp),
+      conic-gradient(from -58deg at 50% 28.125%, var(--c1) 0 116deg, transparent 0 100%) var(--gp),
+      linear-gradient(90deg, var(--c2) 0 50%, var(--c3) 0 100%) var(--gp);
+  }
+  
+  .headerPattern::after,
+  .agentsPattern::after,
+  .bytesizePattern::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20vh; /* Adjust the height of the fade effect */
+    background: linear-gradient(to bottom, transparent, var(--background-color));
+  }
+  
+  /* Agents Pattern */
+  .agentsPattern {
+    --s: 84px;
+    /* Colors are set via CSS variables */
+    --_g: 0 120deg, #0000 0;
+    background: conic-gradient(
+          from 0deg at calc(500% / 6) calc(100% / 3),
+          var(--c3) var(--_g)
+        ),
+      conic-gradient(
+        from -120deg at calc(100% / 6) calc(100% / 3),
+        var(--c2) var(--_g)
+      ),
+      conic-gradient(
+        from 120deg at calc(100% / 3) calc(500% / 6),
+        var(--c1) var(--_g)
+      ),
+      conic-gradient(
+        from 120deg at calc(200% / 3) calc(500% / 6),
+        var(--c1) var(--_g)
+      ),
+      conic-gradient(
+        from -180deg at calc(100% / 3) 50%,
+        var(--c2) 60deg,
+        var(--c1) var(--_g)
+      ),
+      conic-gradient(
+        from 60deg at calc(200% / 3) 50%,
+        var(--c1) 60deg,
+        var(--c3) var(--_g)
+      ),
+      conic-gradient(
+        from -60deg at 50% calc(100% / 3),
+        var(--c1) 120deg,
+        var(--c2) 0 240deg,
+        var(--c3) 0
+      );
+    background-size: calc(var(--s) * 1.732) var(--s);
+  }
+  
+  /* Bytesize Pattern */
+  .bytesizePattern {
+    --s: 82px;
+    /* Colors are set via CSS variables */
+    --_g: var(--c3) 0 120deg, #0000 0;
+    background: conic-gradient(from -60deg at 50% calc(100% / 3), var(--_g)),
+      conic-gradient(from 120deg at 50% calc(200% / 3), var(--_g)),
+      conic-gradient(
+        from 60deg at calc(200% / 3),
+        var(--c3) 60deg,
+        var(--c2) 0 120deg,
+        #0000 0
+      ),
+      conic-gradient(from 180deg at calc(100% / 3), var(--c1) 60deg, var(--_g)),
+      linear-gradient(
+        90deg,
+        var(--c1) calc(100% / 6),
+        var(--c2) 0 50%,
+        var(--c1) 0 calc(500% / 6),
+        var(--c2) 0
+      );
+    background-size: calc(1.732 * var(--s)) var(--s);
+  }
+  
+  .byteContent {
+    margin-top: 30vh; /* To ensure content is below the headerPattern */
+    padding: 50px;
+    text-align: center;
+  }
+  
+  .byteContent h2 {
+    margin-bottom: 20px;
+    font-size: 3rem;
+  }
+  
+  .byteContent p {
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  .byteContent span {
+    font-size: 0.9rem;
+    color: #ffffff;
+    padding: 5px;
+    font-family: CreatoLight;
+    border-radius: 5px;
+    text-decoration: overline;
+  }
+  
+  .page button {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+    transition: all 300ms;
+  }
+  
+  .page button:hover {
+    transform: scale(0.95);
+  }
+  
+  .footer {
+    padding: 1rem;
+    text-align: center;
+    font-size: 1rem;
+    color: #cccccc;
+  }
+  
+  .loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 4rem;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+  }
+  
+  @media screen and (max-width: 600px) {
+    .settings {
+      flex-direction: column;
+    }
+    .header {
+      padding: 0 5px;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+  }
+  
+  .modal,
+  .byteModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    text-align: center;
+    gap: 20px;
+  }
+  
+  .modal button,
+  .byteModal button {
+    margin-top: 1rem;
+  }
+  
