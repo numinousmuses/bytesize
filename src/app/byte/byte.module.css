@@ -251,3 +251,17 @@
     margin-top: 1rem;
   }
   
+  .consumedAllBytes {
+    scroll-snap-align: start; /* Add this line */
+    height: 100vh;
+    width: 100vw;
+    display: flex; /* Optional: To center content */
+    flex-direction: column;
+    justify-content: center; /* Optional: To center content */
+    align-items: center; /* Optional: To center content */
+    text-align: center; /* Ensure text is centered */
+    padding: 20px; /* Optional: Add padding for better readability */
+    color: white; /* Ensure text is visible */
+    background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
+}
+
